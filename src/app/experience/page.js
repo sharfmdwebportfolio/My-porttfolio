@@ -135,7 +135,7 @@ export default function Experience() {
         <section className="mb-12 md:mb-20 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
           <div>
             <h1 className="font-display-lg text-4xl md:text-display-lg text-primary font-extrabold mb-4 tracking-tight">
-              Experience &amp; Expertise
+              Professional Experience &amp; Expertise
             </h1>
             <p className="font-body-lg text-base md:text-body-lg text-on-surface-variant max-w-2xl leading-relaxed">
               Bridging business strategy and intelligent information systems through data-driven decision science and machine learning.
@@ -143,7 +143,7 @@ export default function Experience() {
           </div>
           <button
             onClick={() => window.print()}
-            className="flex items-center gap-2 bg-primary text-on-primary hover:bg-secondary px-6 py-3 rounded-lg font-body-md font-semibold shrink-0 shadow-md self-start sm:self-center transition-all duration-200"
+            className="flex items-center gap-2 bg-primary text-on-primary hover:bg-secondary hover:text-on-secondary px-6 py-3 rounded-lg font-body-md font-semibold shrink-0 shadow-md self-start sm:self-center transition-all duration-200"
           >
             <span className="material-symbols-outlined text-sm">print</span>
             Print Resume
@@ -152,8 +152,66 @@ export default function Experience() {
 
         {/* Grid Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
-          {/* Left Column: Experience & Education */}
+          {/* Left Column: Education & Experience */}
           <div className="lg:col-span-7 space-y-16">
+            {/* Education */}
+            <section>
+              <div className="flex items-center gap-3 mb-8">
+                <span className="material-symbols-outlined text-secondary text-2xl font-semibold">school</span>
+                <h2 className="font-headline-lg text-xl md:text-headline-lg text-primary font-bold">Academic Education</h2>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                {education.map((edu, idx) => (
+                  <div
+                    key={idx}
+                    className="p-6 md:p-8 bg-surface-container-lowest border border-outline-variant rounded-xl shadow-sm hover:border-secondary transition-colors"
+                  >
+                    <span
+                      className={`font-label-sm text-xs mb-4 block font-semibold ${
+                        edu.active ? "text-secondary" : "text-on-surface-variant"
+                      }`}
+                    >
+                      {edu.date}
+                    </span>
+                    <h3 className="font-headline-md text-lg font-bold text-deep-navy mb-2">{edu.degree}</h3>
+                    <p className="font-body-md text-sm md:text-base text-on-surface-variant">{edu.school}</p>
+                    <p className="font-body-md text-sm text-on-surface-variant italic mt-1">{edu.location}</p>
+                  </div>
+                ))}
+              </div>
+            </section>
+
+            {/* Academic Engagement & Lectures */}
+            <section>
+              <div className="flex items-center gap-3 mb-8">
+                <span className="material-symbols-outlined text-secondary text-2xl font-semibold">mic</span>
+                <h2 className="font-headline-lg text-xl md:text-headline-lg text-primary font-bold">Academic Engagement &amp; Lectures</h2>
+              </div>
+              <div className="bg-white dark:bg-surface-container-lowest border border-outline-variant p-6 md:p-8 rounded-xl shadow-sm space-y-4 hover:border-secondary transition-colors">
+                <div className="flex flex-wrap justify-between items-start gap-2 border-b border-outline-variant/60 pb-3">
+                  <div>
+                    <h3 className="font-headline-md text-lg font-bold text-deep-navy">Invited Guest Lecture</h3>
+                    <p className="font-body-md text-sm font-semibold text-secondary">Virscend University, Irvine, California, USA</p>
+                  </div>
+                  <span className="font-label-sm text-xs px-3 py-1 rounded-full font-bold uppercase tracking-wider text-secondary bg-secondary-fixed">
+                    MBA (MIS Department)
+                  </span>
+                </div>
+                
+                <div className="space-y-2">
+                  <span className="text-[10px] md:text-xs font-bold text-outline uppercase tracking-wider block">
+                    Lecture Based on Published Research Paper
+                  </span>
+                  <h4 className="font-headline-md text-sm md:text-base font-bold text-primary italic leading-snug">
+                    "Enhancing Data Reliability in Management Information Systems through Artificial Intelligence-Driven Validation and Error Detection Models"
+                  </h4>
+                  <p className="font-body-md text-xs md:text-sm text-on-surface-variant leading-relaxed pt-1">
+                    Invited by Virscend University to deliver a recorded guest lecture for MBA students based on my published research examining how Artificial Intelligence can enhance data reliability through automated validation and error detection mechanisms within Management Information Systems.
+                  </p>
+                </div>
+              </div>
+            </section>
+
             {/* Experience */}
             <section>
               <div className="flex items-center gap-3 mb-8">
@@ -233,33 +291,6 @@ export default function Experience() {
                 ))}
               </div>
             </section>
-
-            {/* Education */}
-            <section>
-              <div className="flex items-center gap-3 mb-8">
-                <span className="material-symbols-outlined text-secondary text-2xl font-semibold">school</span>
-                <h2 className="font-headline-lg text-xl md:text-headline-lg text-primary font-bold">Education</h2>
-              </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                {education.map((edu, idx) => (
-                  <div
-                    key={idx}
-                    className="p-6 md:p-8 bg-surface-container-lowest border border-outline-variant rounded-xl shadow-sm hover:border-secondary transition-colors"
-                  >
-                    <span
-                      className={`font-label-sm text-xs mb-4 block font-semibold ${
-                        edu.active ? "text-secondary" : "text-on-surface-variant"
-                      }`}
-                    >
-                      {edu.date}
-                    </span>
-                    <h3 className="font-headline-md text-lg font-bold text-deep-navy mb-2">{edu.degree}</h3>
-                    <p className="font-body-md text-sm md:text-base text-on-surface-variant">{edu.school}</p>
-                    <p className="font-body-md text-sm text-on-surface-variant italic mt-1">{edu.location}</p>
-                  </div>
-                ))}
-              </div>
-            </section>
           </div>
 
           {/* Right Column: Skills & Memberships */}
@@ -284,7 +315,7 @@ export default function Experience() {
                           onClick={() => setSelectedSkill(item)}
                           className={`px-3 py-1.5 rounded text-xs font-semibold cursor-pointer transition-all duration-200 ${
                             selectedSkill === item
-                              ? "bg-secondary text-white shadow-md scale-105"
+                              ? "bg-secondary text-on-secondary shadow-md scale-105"
                               : "bg-surface-container-lowest text-on-surface border border-outline-variant hover:border-secondary"
                           }`}
                         >
@@ -325,7 +356,7 @@ export default function Experience() {
                       </div>
                       <div>
                         <h4 className="font-body-md font-bold text-sm md:text-base">{memb.title}</h4>
-                        <p className="text-on-primary-container text-xs opacity-80 mt-1 leading-relaxed">{memb.org}</p>
+                        <p className="text-on-primary/75 text-xs mt-1 leading-relaxed">{memb.org}</p>
                       </div>
                     </div>
                   ))}

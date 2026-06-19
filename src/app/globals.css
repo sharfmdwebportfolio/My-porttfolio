@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@variant dark (&:where(.dark, .dark *));
+
 :root {
   --color-primary: #061630;
   --color-secondary: #1261a3;
@@ -24,6 +26,8 @@
   --color-outline-variant: #c5c6ce;
   --color-outline: #75777e;
   --color-surface-variant: #e1e3e4;
+  --color-on-primary: #ffffff;
+  --color-on-secondary: #ffffff;
 
   --radius-DEFAULT: 0.125rem;
   --radius-lg: 0.25rem;
@@ -71,6 +75,8 @@
   --color-outline-variant: #334155;
   --color-outline: #64748b;
   --color-surface-variant: #1e293b;
+  --color-on-primary: #061630;
+  --color-on-secondary: #061630;
 }
 
 @theme {
@@ -81,7 +87,7 @@
   --color-surface-variant: var(--color-surface-variant);
   --color-tertiary-fixed: var(--color-tertiary-fixed);
   --color-background: var(--color-background);
-  --color-on-primary: #ffffff;
+  --color-on-primary: var(--color-on-primary);
   --color-surface-container: var(--color-surface-container);
   --color-secondary: var(--color-secondary);
   --color-secondary-fixed: var(--color-secondary-fixed);
@@ -91,7 +97,7 @@
   --color-secondary-fixed-dim: var(--color-secondary-fixed-dim);
   --color-outline-variant: var(--color-outline-variant);
   --color-primary-container: var(--color-primary-container);
-  --color-on-secondary: #ffffff;
+  --color-on-secondary: var(--color-on-secondary);
   --color-on-surface-variant: var(--color-on-surface-variant);
   --color-surface-gray: var(--color-surface-gray);
   --color-surface: var(--color-surface-container-lowest);
@@ -201,4 +207,21 @@
 .publication-card:hover {
   border-color: var(--color-secondary);
   box-shadow: 0px 4px 20px rgba(0,0,0,0.12);
+}
+
+/* Smooth global dark mode transitions */
+body, 
+header, 
+footer, 
+main,
+.bg-surface-container-lowest,
+.bg-surface-container-low,
+.bg-surface-container-high,
+.bg-white,
+.text-on-surface,
+.text-on-surface-variant,
+.text-deep-navy,
+.border-outline-variant,
+.border-surface-container-highest {
+  transition: background-color 300ms ease, border-color 300ms ease, color 300ms ease, box-shadow 300ms ease;
 }

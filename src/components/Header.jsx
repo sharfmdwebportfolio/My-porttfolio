@@ -32,6 +32,7 @@ export default function Header() {
 
   const navItems = [
     { name: "Home", href: "/" },
+    { name: "Research Interests", href: "/research" },
     { name: "Publications", href: "/publications" },
     { name: "Experience", href: "/experience" },
     { name: "Contact", href: "/contact" },
@@ -53,12 +54,12 @@ export default function Header() {
         </Link>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center gap-8 font-body-md text-body-md">
+        <div className="hidden md:flex items-center gap-6 lg:gap-8 font-body-md text-body-md">
           {navItems.map((item) => (
             <Link
               key={item.name}
               href={item.href}
-              className={`pb-1 transition-all duration-200 ${
+              className={`pb-1 transition-all duration-200 text-sm lg:text-base ${
                 isActive(item.href)
                   ? "text-secondary font-bold border-b-2 border-secondary"
                   : "text-on-surface-variant hover:text-electric-cyan"
@@ -82,12 +83,14 @@ export default function Header() {
             </span>
           </button>
 
-          <Link
-            href="/contact"
-            className="bg-primary text-on-primary px-5 py-2 rounded-lg font-body-md font-semibold hover:bg-secondary hover:scale-105 active:scale-95 transition-all duration-200 shadow-sm text-sm"
+          <a
+            href="/cv.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-primary text-on-primary px-4 py-2 rounded-lg font-body-md font-semibold hover:bg-secondary hover:text-on-secondary hover:scale-105 active:scale-95 transition-all duration-200 shadow-sm text-sm"
           >
-            Hire Me
-          </Link>
+            View CV
+          </a>
           
           {/* Mobile Menu Trigger */}
           <button

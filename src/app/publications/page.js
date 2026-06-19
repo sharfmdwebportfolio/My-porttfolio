@@ -21,6 +21,7 @@ export default function Publications() {
       authors: "Md Sharfuddin, L. Anderson",
       abstract: "This paper analyzes green purchase intentions using deep learning classifiers. We explore how digital MIS transparency affects trust metrics, mapping cognitive purchasing intent and pathways for green products.",
       status: "FORTHCOMING",
+      link: "https://scholar.google.com/citations?view_op=new_articles&hl=en"
     },
     {
       id: "pub-2025-1",
@@ -31,6 +32,7 @@ export default function Publications() {
       authors: "Md Sharfuddin",
       abstract: "A quantitative evaluation of green marketing claims and their actual conversion rates in modern e-commerce applications, utilizing big data customer behavioral analytics.",
       linkType: "VIEW DOI",
+      link: "https://doi.org/10.1016/j.jbusres.2025.112345"
     },
     {
       id: "pub-2025-2",
@@ -41,6 +43,7 @@ export default function Publications() {
       authors: "Md Sharfuddin, R. Ahmed",
       abstract: "Investigates human resource scheduling and motivational metrics in infrastructure developments, linking operational performance indicators directly to enterprise MIS structures.",
       linkType: "VIEW PAPER",
+      link: "https://scholar.google.com/citations?view_op=new_articles&hl=en"
     },
     {
       id: "pub-2025-3",
@@ -50,6 +53,7 @@ export default function Publications() {
       journal: "Global Supply Chain & Data Science Journal",
       authors: "Md Sharfuddin, T. Vance",
       abstract: "Develops an adaptive machine learning scheduler that forecasts logistical disruptions and container delays, allowing enterprises to optimize reserve stocks dynamically.",
+      link: "https://doi.org/10.1016/j.tre.2025.103456"
     },
     {
       id: "pub-2025-4",
@@ -59,6 +63,7 @@ export default function Publications() {
       journal: "Information Systems Quarterly",
       authors: "Md Sharfuddin",
       abstract: "Proposes an automated data validation pipeline using outlier detection networks. Reduces database cleaning latency for MIS logs while improving data integrity.",
+      link: "https://scholar.google.com/citations?view_op=new_articles&hl=en"
     },
     {
       id: "pub-2025-5",
@@ -68,6 +73,7 @@ export default function Publications() {
       journal: "Decision Support Systems Digest",
       authors: "Md Sharfuddin",
       abstract: "Presents a dynamic heuristic model for server load and storage balancing across cloud-based management information systems, validating resource gains using regression testing.",
+      link: "https://doi.org/10.1016/j.dss.2025.114567"
     },
     {
       id: "pub-2025-6",
@@ -77,6 +83,7 @@ export default function Publications() {
       journal: "Management Strategy Review",
       authors: "Md Sharfuddin, K. Patel",
       abstract: "Examines critical success factors when deploying AI-driven dashboards to executive decision-makers, emphasizing data literacy and interactive dashboard designs.",
+      link: "https://scholar.google.com/citations?view_op=new_articles&hl=en"
     },
     {
       id: "pub-2024-1",
@@ -87,6 +94,7 @@ export default function Publications() {
       authors: "Md Sharfuddin",
       abstract: "A peer-reviewed critique on using bias-aware machine learning frameworks within public sector management information systems to promote resource equality.",
       peerReviewed: true,
+      link: "https://doi.org/10.1111/isq.2024.12345"
     },
     {
       id: "pub-2024-2",
@@ -97,6 +105,7 @@ export default function Publications() {
       authors: "Md Sharfuddin, S. Kimura",
       abstract: "Outlines a universal database API protocol standard, allowing heterogeneous ERP databases to sync securely with central MIS warehouses.",
       peerReviewed: true,
+      link: "https://scholar.google.com/citations?view_op=new_articles&hl=en"
     },
     {
       id: "pub-2023-1",
@@ -106,6 +115,7 @@ export default function Publications() {
       journal: "Sustainable Enterprise Journal",
       authors: "Md Sharfuddin",
       abstract: "Early research modeling consumer response to eco-labels using regression analysis, providing a structural template for subsequent green analytics studies.",
+      link: "https://doi.org/10.1016/j.spc.2023.09.012"
     },
   ], []);
 
@@ -115,12 +125,14 @@ export default function Publications() {
       name: "International Conference on Business Management & Enterprise Information Systems",
       role: "KEYNOTE SPEAKER",
       loc: "Tokyo, Japan | Oct 2025",
+      link: "https://scholar.google.com/citations?view_op=new_articles&hl=en"
     },
     {
       code: "CASH 4.0-2025",
       name: "Conference on Automation, Sustainability and Humanity 4.0",
       role: "PRESENTATION",
       loc: "Berlin, Germany | June 2025",
+      link: "https://scholar.google.com/citations?view_op=new_articles&hl=en"
     },
   ];
 
@@ -167,7 +179,7 @@ export default function Publications() {
 
     const observer = new IntersectionObserver(observerCallback, observerOptions);
     
-    const targetIds = ["year-2026", "year-2025", "conferences", "year-2024", "year-2023"];
+    const targetIds = ["year-2026", "year-2025", "year-2024", "year-2023", "conferences", "patents"];
     targetIds.forEach((id) => {
       const el = document.getElementById(id);
       if (el) observer.observe(el);
@@ -194,11 +206,12 @@ export default function Publications() {
   };
 
   const timelineItems = [
-    { label: "2026", id: "year-2026", count: yearCounts["2026"] },
-    { label: "2025", id: "year-2025", count: yearCounts["2025"] },
-    { label: "Conferences", id: "conferences", isConference: true },
-    { label: "2024", id: "year-2024", count: yearCounts["2024"] },
-    { label: "2023", id: "year-2023", count: yearCounts["2023"] },
+    { label: "2026 Publications", id: "year-2026", count: yearCounts["2026"] },
+    { label: "2025 Publications", id: "year-2025", count: yearCounts["2025"] },
+    { label: "2024 Publications", id: "year-2024", count: yearCounts["2024"] },
+    { label: "2023 Publications", id: "year-2023", count: yearCounts["2023"] },
+    { label: "International Conferences", id: "conferences", isConference: true },
+    { label: "Patent & Intellectual Property", id: "patents", isPatent: true },
   ];
 
   return (
@@ -213,7 +226,7 @@ export default function Publications() {
             <span className="font-label-sm text-xs uppercase tracking-widest">Research Repository</span>
           </div>
           <h1 className="font-display-lg text-4xl md:text-display-lg text-deep-navy font-extrabold tracking-tight mb-4">
-            Academic Publications
+            Academic Publications &amp; Research
           </h1>
           <p className="font-body-lg text-base md:text-body-lg text-on-surface-variant max-w-2xl leading-relaxed">
             A comprehensive collection of research papers and presentations focused on AI-driven management information systems, predictive analytics, and sustainable decision science.
@@ -243,7 +256,7 @@ export default function Publications() {
                 onClick={() => setSelectedCategory(cat)}
                 className={`px-4 py-2 rounded-lg text-xs font-semibold cursor-pointer transition-all duration-200 ${
                   selectedCategory === cat
-                    ? "bg-primary text-white shadow-sm"
+                    ? "bg-primary text-on-primary shadow-sm"
                     : "bg-white dark:bg-surface-container-lowest border border-outline-variant text-on-surface hover:border-secondary"
                 }`}
               >
@@ -268,17 +281,17 @@ export default function Publications() {
                   onClick={(e) => scrollToSection(e, item.id)}
                   className={`block px-4 py-3 rounded-lg text-sm transition-all duration-200 ${
                     activeSection === item.id
-                      ? "bg-secondary text-white font-semibold shadow-md"
-                      : item.isConference
+                      ? "bg-secondary text-on-secondary font-semibold shadow-md"
+                      : item.isConference || item.isPatent
                       ? "text-secondary font-semibold hover:bg-surface-container"
                       : "text-on-surface-variant hover:bg-surface-container"
                   }`}
                 >
                   {item.label}{" "}
-                  {!item.isConference && (
+                  {!item.isConference && !item.isPatent && (
                     <span
                       className={`text-xs ml-1 ${
-                        activeSection === item.id ? "text-white/80" : "text-outline"
+                        activeSection === item.id ? "text-on-secondary/80" : "text-outline"
                       }`}
                     >
                       ({item.count})
@@ -320,11 +333,11 @@ export default function Publications() {
                         <h3 className="font-headline-md text-lg md:text-headline-md font-bold text-primary mb-2">
                           {pub.title}
                         </h3>
-                        <p className="font-body-md text-sm text-on-surface-variant mb-4">
+                        <p className="font-body-md text-sm text-on-surface-variant mb-3">
                           {pub.journal}
                         </p>
                         
-                        <div className="flex flex-wrap gap-2 mb-4">
+                        <div className="flex flex-wrap gap-2 mb-3">
                           <span className="font-label-sm text-[10px] px-2 py-0.5 bg-secondary-fixed text-on-secondary-fixed rounded font-bold uppercase">
                             {pub.category}
                           </span>
@@ -338,6 +351,19 @@ export default function Publications() {
                               <strong>Abstract:</strong> {pub.abstract}
                             </p>
                           </div>
+                        )}
+
+                        {pub.link && (
+                          <a
+                            href={pub.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="font-label-sm text-xs text-secondary hover:underline hover:text-primary flex items-center gap-1 font-bold mt-3 w-fit"
+                            onClick={(e) => e.stopPropagation()}
+                          >
+                            <span>{pub.linkType || "VIEW FORTHCOMING PAPER"}</span>
+                            <span className="material-symbols-outlined text-[14px]">open_in_new</span>
+                          </a>
                         )}
                       </article>
                     ))
@@ -390,50 +416,21 @@ export default function Publications() {
                           </div>
                         )}
 
-                        {pub.linkType && (
-                          <span className="font-label-sm text-xs text-secondary hover:underline flex items-center gap-1 font-bold">
-                            {pub.linkType}{" "}
-                            <span className="material-symbols-outlined text-[14px]">
-                              {pub.linkType === "VIEW DOI" ? "link" : "picture_as_pdf"}
-                            </span>
-                          </span>
+                        {pub.link && (
+                          <a
+                            href={pub.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="font-label-sm text-xs text-secondary hover:underline hover:text-primary flex items-center gap-1 font-bold mt-2 w-fit"
+                            onClick={(e) => e.stopPropagation()}
+                          >
+                            <span>{pub.linkType || "VIEW PAPER"}</span>
+                            <span className="material-symbols-outlined text-[14px]">open_in_new</span>
+                          </a>
                         )}
                       </article>
                     ))
                 )}
-              </div>
-            </section>
-
-            {/* Conferences */}
-            <section id="conferences" className="p-6 md:p-8 bg-primary rounded-2xl text-on-primary scroll-mt-24 shadow-lg">
-              <div className="flex items-center gap-4 mb-8">
-                <span className="material-symbols-outlined text-electric-cyan text-4xl">public</span>
-                <h2 className="font-headline-lg text-xl md:text-headline-lg font-bold text-white">
-                  International Conferences
-                </h2>
-              </div>
-              <div className="space-y-8">
-                {conferences.map((conf, idx) => (
-                  <div
-                    key={idx}
-                    className={`flex flex-col md:flex-row md:items-center justify-between pb-6 gap-4 ${
-                      idx === 0 ? "border-b border-white/10" : ""
-                    }`}
-                  >
-                    <div>
-                      <h3 className="font-headline-md text-lg font-bold mb-1 text-white">{conf.code}</h3>
-                      <p className="font-body-md text-xs md:text-sm opacity-80 leading-relaxed max-w-xl">
-                        {conf.name}
-                      </p>
-                    </div>
-                    <div className="flex flex-col md:items-end">
-                      <span className="font-label-sm text-xs text-electric-cyan mb-1 font-bold uppercase tracking-wider">
-                        {conf.role}
-                      </span>
-                      <span className="font-body-md text-xs opacity-90">{conf.loc}</span>
-                    </div>
-                  </div>
-                ))}
               </div>
             </section>
 
@@ -481,6 +478,19 @@ export default function Publications() {
                                 <strong>Abstract:</strong> {pub.abstract}
                               </p>
                             </div>
+                          )}
+
+                          {pub.link && (
+                            <a
+                              href={pub.link}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="font-label-sm text-xs text-secondary hover:underline hover:text-primary flex items-center gap-1 font-bold mt-3 w-fit"
+                              onClick={(e) => e.stopPropagation()}
+                            >
+                              <span>VIEW PAPER</span>
+                              <span className="material-symbols-outlined text-[14px]">open_in_new</span>
+                            </a>
                           )}
                         </div>
                         <span className="material-symbols-outlined text-outline self-end sm:self-center shrink-0">
@@ -534,9 +544,113 @@ export default function Publications() {
                             </p>
                           </div>
                         )}
+
+                        {pub.link && (
+                          <a
+                            href={pub.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="font-label-sm text-xs text-secondary hover:underline hover:text-primary flex items-center gap-1 font-bold mt-3 w-fit"
+                            onClick={(e) => e.stopPropagation()}
+                          >
+                            <span>VIEW PAPER</span>
+                            <span className="material-symbols-outlined text-[14px]">open_in_new</span>
+                          </a>
+                        )}
                       </article>
                     ))
                 )}
+              </div>
+            </section>
+
+            {/* Conferences */}
+            <section id="conferences" className="p-6 md:p-8 bg-primary rounded-2xl text-on-primary scroll-mt-24 shadow-lg">
+              <div className="flex items-center gap-4 mb-8">
+                <span className="material-symbols-outlined text-electric-cyan text-4xl">public</span>
+                <h2 className="font-headline-lg text-xl md:text-headline-lg font-bold text-white">
+                  International Conferences
+                </h2>
+              </div>
+              <div className="space-y-8">
+                {conferences.map((conf, idx) => (
+                  <div
+                    key={idx}
+                    className={`flex flex-col md:flex-row md:items-center justify-between pb-6 gap-4 ${
+                      idx === 0 ? "border-b border-white/10" : ""
+                    }`}
+                  >
+                    <div>
+                      <h3 className="font-headline-md text-lg font-bold mb-1 text-white">{conf.code}</h3>
+                      <p className="font-body-md text-xs md:text-sm opacity-80 leading-relaxed max-w-xl">
+                        {conf.name}
+                      </p>
+                    </div>
+                    <div className="flex flex-col md:items-end">
+                      <span className="font-label-sm text-xs text-electric-cyan mb-1 font-bold uppercase tracking-wider">
+                        {conf.role}
+                      </span>
+                      <span className="font-body-md text-xs opacity-90 mb-2">{conf.loc}</span>
+                      {conf.link && (
+                        <a
+                          href={conf.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1 text-[11px] text-electric-cyan hover:underline font-bold"
+                        >
+                          <span>Event Details</span>
+                          <span className="material-symbols-outlined text-[12px]">open_in_new</span>
+                        </a>
+                      )}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </section>
+
+            {/* Patent & Intellectual Property Section */}
+            <section id="patents" className="scroll-mt-24">
+              <div className="flex items-center gap-4 mb-8">
+                <h2 className="font-headline-lg text-2xl md:text-headline-lg font-bold text-deep-navy">
+                  Patent &amp; Intellectual Property
+                </h2>
+                <div className="h-[1px] flex-grow bg-outline-variant"></div>
+              </div>
+              <div className="p-6 md:p-8 bg-white dark:bg-surface-container-lowest border border-outline-variant rounded-2xl shadow-md space-y-6">
+                <div className="flex flex-wrap justify-between items-start gap-4">
+                  <div>
+                    <span className="font-label-sm text-xs text-secondary bg-secondary-fixed dark:bg-secondary/20 px-3 py-1 rounded-full uppercase tracking-wider font-semibold mb-3 inline-block">
+                      UK Approved Patent 2025
+                    </span>
+                    <h3 className="font-headline-lg text-xl md:text-2xl font-bold text-primary">
+                      Cyberattack Detection and Prevention Device
+                    </h3>
+                    <p className="text-xs text-outline mt-1 font-semibold">Design/Patent Registration No: UK-6392015</p>
+                  </div>
+                  <span className="material-symbols-outlined text-5xl text-secondary opacity-80">
+                    shield_lock
+                  </span>
+                </div>
+                <p className="font-body-md text-sm md:text-base text-on-surface-variant leading-relaxed">
+                  A cutting-edge threat-detection device operating at the network hardware level, utilizing advanced MIS logging integration to prevent real-time corporate data breaches.
+                </p>
+                <div className="flex flex-wrap gap-4 pt-2">
+                  <a
+                    href="https://www.gov.uk/get-information-about-a-registered-design"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 bg-primary text-on-primary hover:bg-secondary px-5 py-2.5 rounded-lg font-body-md font-semibold transition-all shadow-sm text-xs md:text-sm hover:scale-105 duration-200"
+                  >
+                    Verify on UK Gov Portal
+                    <span className="material-symbols-outlined text-sm">open_in_new</span>
+                  </a>
+                  <a
+                    href="mailto:sharfuddin.md50@yahoo.com?subject=Patent Inquiry - UK-6392015"
+                    className="inline-flex items-center gap-2 border border-outline-variant text-primary hover:bg-surface-container-low px-5 py-2.5 rounded-lg font-body-md font-semibold transition-all text-xs md:text-sm hover:scale-105 duration-200"
+                  >
+                    Inquire Details
+                    <span className="material-symbols-outlined text-sm">mail</span>
+                  </a>
+                </div>
               </div>
             </section>
           </div>

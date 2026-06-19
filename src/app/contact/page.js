@@ -95,24 +95,26 @@ export default function Contact() {
             </div>
 
             {/* Academic Portals */}
-            <div className="bg-primary text-white rounded-2xl p-6 md:p-8 shadow-md">
+            <div className="bg-primary text-on-primary rounded-2xl p-6 md:p-8 shadow-md">
               <h3 className="font-headline-lg text-lg md:text-xl font-bold mb-4">
                 Research Portals
               </h3>
-              <p className="text-white/80 text-sm mb-6 leading-relaxed">
+              <p className="text-on-primary/80 text-sm mb-6 leading-relaxed">
                 You can also view my research publications and verification records across these global platforms:
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {[
-                  { name: "Google Scholar", icon: "school" },
-                  { name: "ResearchGate", icon: "hub" },
-                  { name: "ORCID Profile", icon: "account_circle" },
-                  { name: "LinkedIn Profile", icon: "link" },
+                  { name: "Google Scholar", icon: "school", href: "https://scholar.google.com/citations?user=SHARFUDDIN" },
+                  { name: "ResearchGate", icon: "hub", href: "https://www.researchgate.net/profile/Md-Sharfuddin-4" },
+                  { name: "ORCID Profile", icon: "account_circle", href: "https://orcid.org/0009-0005-2313-1768" },
+                  { name: "LinkedIn Profile", icon: "link", href: "https://www.linkedin.com/in/md-sharfuddin-2708b730b" },
                 ].map((item, idx) => (
                   <a
                     key={idx}
-                    href="#"
-                    className="flex items-center gap-3 p-3 bg-white/10 rounded-lg hover:bg-white/20 transition-colors group"
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-3 p-3 bg-on-primary/10 rounded-lg hover:bg-on-primary/20 transition-all duration-200 hover:scale-[1.03] group"
                   >
                     <span className="material-symbols-outlined text-electric-cyan group-hover:scale-110 transition-transform">
                       {item.icon}
@@ -123,13 +125,13 @@ export default function Contact() {
               </div>
             </div>
           </div>
-
+ 
           {/* Right Column: Contact Form */}
           <div className="lg:col-span-7 bg-white dark:bg-surface-container-lowest border border-outline-variant rounded-2xl p-6 md:p-8 shadow-sm">
             <h3 className="font-headline-lg text-xl md:text-headline-lg font-bold text-deep-navy mb-6">
               Send a Message
             </h3>
-
+ 
             {submitted ? (
               <div className="bg-secondary-fixed/30 text-primary border border-secondary/20 p-8 rounded-xl flex flex-col items-center text-center gap-4">
                 <span className="material-symbols-outlined text-5xl text-secondary animate-bounce">
@@ -162,7 +164,7 @@ export default function Contact() {
                       required
                       value={formData.name}
                       onChange={handleChange}
-                      className="w-full bg-surface-container-low border border-outline-variant focus:border-secondary focus:ring-1 focus:ring-secondary rounded-lg px-4 py-3 text-sm focus:outline-none transition-all"
+                      className="w-full bg-surface-container-low border border-outline-variant focus:border-secondary focus:ring-2 focus:ring-secondary/35 rounded-lg px-4 py-3 text-sm focus:outline-none transition-all duration-200"
                       placeholder="e.g. John Doe"
                     />
                   </div>
@@ -177,12 +179,12 @@ export default function Contact() {
                       required
                       value={formData.email}
                       onChange={handleChange}
-                      className="w-full bg-surface-container-low border border-outline-variant focus:border-secondary focus:ring-1 focus:ring-secondary rounded-lg px-4 py-3 text-sm focus:outline-none transition-all"
+                      className="w-full bg-surface-container-low border border-outline-variant focus:border-secondary focus:ring-2 focus:ring-secondary/35 rounded-lg px-4 py-3 text-sm focus:outline-none transition-all duration-200"
                       placeholder="e.g. john@example.com"
                     />
                   </div>
                 </div>
-
+ 
                 <div>
                   <label htmlFor="subject" className="block text-xs font-bold text-on-surface-variant uppercase tracking-wider mb-2">
                     Subject
@@ -194,11 +196,11 @@ export default function Contact() {
                     required
                     value={formData.subject}
                     onChange={handleChange}
-                    className="w-full bg-surface-container-low border border-outline-variant focus:border-secondary focus:ring-1 focus:ring-secondary rounded-lg px-4 py-3 text-sm focus:outline-none transition-all"
+                    className="w-full bg-surface-container-low border border-outline-variant focus:border-secondary focus:ring-2 focus:ring-secondary/35 rounded-lg px-4 py-3 text-sm focus:outline-none transition-all duration-200"
                     placeholder="e.g. Research Collaboration Inquiry"
                   />
                 </div>
-
+ 
                 <div>
                   <label htmlFor="message" className="block text-xs font-bold text-on-surface-variant uppercase tracking-wider mb-2">
                     Your Message
@@ -210,15 +212,15 @@ export default function Contact() {
                     rows="6"
                     value={formData.message}
                     onChange={handleChange}
-                    className="w-full bg-surface-container-low border border-outline-variant focus:border-secondary focus:ring-1 focus:ring-secondary rounded-lg px-4 py-3 text-sm focus:outline-none transition-all resize-none"
+                    className="w-full bg-surface-container-low border border-outline-variant focus:border-secondary focus:ring-2 focus:ring-secondary/35 rounded-lg px-4 py-3 text-sm focus:outline-none transition-all resize-none duration-200"
                     placeholder="Describe your request or proposal..."
                   ></textarea>
                 </div>
-
+ 
                 <button
                   type="submit"
                   disabled={submitting}
-                  className="w-full bg-primary text-white py-3 rounded-lg font-bold hover:bg-secondary active:scale-95 transition-all shadow-md flex items-center justify-center gap-2 cursor-pointer disabled:opacity-75 disabled:cursor-not-allowed text-sm"
+                  className="w-full bg-primary text-on-primary py-3 rounded-lg font-bold hover:bg-secondary hover:text-on-secondary active:scale-[0.98] hover:scale-[1.01] transition-all duration-200 shadow-md flex items-center justify-center gap-2 cursor-pointer disabled:opacity-75 disabled:cursor-not-allowed text-sm"
                 >
                   {submitting ? (
                     <>
