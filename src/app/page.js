@@ -88,13 +88,17 @@ export default function Home() {
               <h1 className="font-display-lg text-4xl md:text-5xl lg:text-display-lg text-primary tracking-tight font-extrabold leading-none">
                 Md Sharfuddin
               </h1>
-              <div className="flex flex-col gap-2 min-h-[96px] sm:min-h-[72px]">
+              <div className="flex flex-col gap-2">
                 <h2 className="font-headline-lg text-xl md:text-2xl lg:text-[25px] text-deep-navy leading-snug font-bold">
-                  Specializing in <span className="text-secondary border-r-2 border-secondary pr-1 animate-pulse">{currentText}</span>
+                  MBA in MIS | AI &amp; Data Analytics Researcher | Business Analyst
                 </h2>
-                <h3 className="font-headline-md text-base md:text-lg text-on-surface-variant/80 font-medium">
-                  MBA in MIS • Published Researcher • Patent Holder • Guest Lecturer
+                <h3 className="font-headline-md text-base md:text-lg text-secondary font-semibold">
+                  Published Researcher | Patent Holder | Guest Lecturer
                 </h3>
+                <div className="text-sm font-semibold text-on-surface-variant flex items-center gap-2 mt-1 min-h-[24px]">
+                  <span className="w-2 h-2 rounded-full bg-secondary shrink-0 animate-pulse"></span>
+                  <span>Research Focus: <span className="text-secondary border-r-2 border-secondary pr-1 animate-pulse font-bold">{currentText}</span></span>
+                </div>
               </div>
               <p className="font-body-lg text-sm md:text-base text-on-surface-variant max-w-2xl leading-relaxed">
                 Bridging business strategy, intelligent information systems, and data-driven decision science. Specializing in machine learning and predictive analytics to optimize enterprise MIS frameworks.
