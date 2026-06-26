@@ -351,7 +351,7 @@ export default function Home() {
                     <span className="material-symbols-outlined text-sm">schema</span>
                   </button>
                   <a
-                    href="https://www.gov.uk/get-information-about-a-registered-design"
+                    href="https://www.registered-design.service.gov.uk/find"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-2 border border-outline-variant text-on-surface hover:text-secondary hover:border-secondary hover:bg-surface-container-low px-5 py-2.5 rounded-lg font-body-md font-semibold transition-all text-xs md:text-sm"
@@ -372,25 +372,25 @@ export default function Home() {
                   <div className="space-y-6">
                     <div>
                       <span className="font-label-sm text-[10px] text-secondary font-bold uppercase tracking-wider">
-                        Sustainability • 2026
+                        Supply Chain • 2025
                       </span>
-                      <h4 className="font-headline-md text-sm md:text-base font-bold text-primary mt-1 mb-1">
-                        AI-Driven Sustainable Consumer Behaviour
+                      <h4 className="font-headline-md text-sm md:text-base font-bold text-primary mt-1 mb-1 leading-tight">
+                        Enhancing supply chain resilience across US regions using machine learning and logistics performance analytics
                       </h4>
                       <p className="text-xs text-on-surface-variant line-clamp-2">
-                        Analyzing purchasing intent and cognitive decision pathways under transparent green MIS indicators.
+                        Supply chain resilience using machine learning analytics to optimize logistical performance.
                       </p>
                     </div>
 
                     <div className="border-t border-outline-variant/60 pt-4">
                       <span className="font-label-sm text-[10px] text-secondary font-bold uppercase tracking-wider">
-                        Supply Chain • 2025
+                        MIS Focus • 2025
                       </span>
-                      <h4 className="font-headline-md text-sm md:text-base font-bold text-primary mt-1 mb-1">
-                        Enhancing supply chain resilience using ML
+                      <h4 className="font-headline-md text-sm md:text-base font-bold text-primary mt-1 mb-1 leading-tight">
+                        Enhancing data reliability in management information systems through artificial intelligence driven validation and error detection models
                       </h4>
                       <p className="text-xs text-on-surface-variant line-clamp-2">
-                        Machine learning logistics optimizer designed to forecast global container delays and reserves requirements.
+                        Proposes an automated data validation pipeline using outlier detection networks.
                       </p>
                     </div>
                   </div>
