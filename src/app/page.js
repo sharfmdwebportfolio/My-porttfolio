@@ -140,7 +140,7 @@ export default function Home() {
                 <Image
                   alt="Md Sharfuddin Portrait"
                   className="w-full h-full object-cover rounded-xl"
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuB17c65LV9BylHjLw6_KDtvqzFpN9jhDpBdXjh3b89vKLEXX1WlfOpTQatX2COkEN5wQBFoLVbtqZJLo32VsY6dnCGs0RgDdvCvh6X9_N-C5w72Nwe22QGNA7UUBf06pHiG1l2YuetphH8ixAMGy6ogd32ItGG58RtJph3y08rKaSgij3MHNWB0CbhY7yMa9bmgGhhDcJyJDUjqRVNWc4PTWiNUsiSL9X_jkMtBBpAP4z3E5iD2nXe7VIwTUxJQcWVk_i8XMArSMC8"
+                  src="/image 1.jpeg"
                   width={362}
                   height={362}
                   priority
