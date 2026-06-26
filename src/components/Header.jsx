@@ -84,7 +84,7 @@ export default function Header() {
           </button>
 
           <a
-            href="/cv.pdf"
+            href="https://drive.google.com/file/d/1gY4ggrCjIUSrV2sJgMMK_wCcKt4FEP8q/view?usp=sharing"
             target="_blank"
             rel="noopener noreferrer"
             className="bg-primary text-on-primary px-4 py-2 rounded-lg font-body-md font-semibold hover:bg-secondary hover:text-on-secondary hover:scale-105 active:scale-95 transition-all duration-200 shadow-sm text-sm"
