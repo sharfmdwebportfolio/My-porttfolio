@@ -1,10 +1,15 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 export default function Contact() {
+  const [contactInfo, setContactInfo] = useState({
+    email: "sharfuddin.md50@yahoo.com",
+    phone: "+1 (213) 636-2680",
+    location: "Los Angeles, California",
+  });
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -13,6 +18,20 @@ export default function Contact() {
   });
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+
+  useEffect(() => {
+    import("@/lib/firestore").then(({ getProfile }) => {
+      getProfile().then((data) => {
+        if (data) {
+          setContactInfo({
+            email: data.email || "sharfuddin.md50@yahoo.com",
+            phone: data.phone || "+1 (213) 636-2680",
+            location: data.location || "Los Angeles, California",
+          });
+        }
+      }).catch(() => {});
+    }).catch(() => {});
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -78,8 +97,8 @@ export default function Contact() {
                   </div>
                   <div>
                     <h4 className="text-xs font-bold text-on-surface-variant uppercase tracking-wider">Email</h4>
-                    <a href="mailto:sharfuddin.md50@yahoo.com" className="text-primary hover:text-secondary hover:underline font-semibold text-sm md:text-base transition-colors mt-1 block">
-                      sharfuddin.md50@yahoo.com
+                    <a href={`mailto:${contactInfo.email}`} className="text-primary hover:text-secondary hover:underline font-semibold text-sm md:text-base transition-colors mt-1 block">
+                      {contactInfo.email}
                     </a>
                   </div>
                 </div>
@@ -90,8 +109,8 @@ export default function Contact() {
                   </div>
                   <div>
                     <h4 className="text-xs font-bold text-on-surface-variant uppercase tracking-wider">Phone</h4>
-                    <a href="tel:+12136362680" className="text-primary hover:text-secondary hover:underline font-semibold text-sm md:text-base transition-colors mt-1 block">
-                      +1 (213) 636-2680
+                    <a href={`tel:${contactInfo.phone.replace(/[^+\d]/g, "")}`} className="text-primary hover:text-secondary hover:underline font-semibold text-sm md:text-base transition-colors mt-1 block">
+                      {contactInfo.phone}
                     </a>
                   </div>
                 </div>
@@ -103,7 +122,7 @@ export default function Contact() {
                   <div>
                     <h4 className="text-xs font-bold text-on-surface-variant uppercase tracking-wider">Location</h4>
                     <span className="text-primary font-semibold text-sm md:text-base mt-1 block">
-                      Los Angeles, California
+                      {contactInfo.location}
                     </span>
                   </div>
                 </div>

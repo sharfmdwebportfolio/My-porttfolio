@@ -11,7 +11,7 @@ export default function Publications() {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [expandedPub, setExpandedPub] = useState(null);
 
-  const publicationsList = useMemo(() => [
+  const [publicationsList, setPublicationsList] = useState([
     {
       id: "pub-1",
       year: "2025",
@@ -20,7 +20,7 @@ export default function Publications() {
       journal: "International Journal of Applied Mathematics 38 (4s), 182-205",
       authors: "RER Shawon",
       abstract: "Supply chain resilience using machine learning analytics to optimize logistical performance.",
-      link: "https://scholar.google.com/citations?hl=en&authuser=3&user=SMQ9e18AAAAJ"
+      link: "https://ijamjournal.org/ijam/publication/index.php/ijam/article/view/225"
     },
     {
       id: "pub-2",
@@ -30,7 +30,7 @@ export default function Publications() {
       journal: "International Journal of Social Science and Economic Research 10 (1), 342-372",
       authors: "M Sharfuddin, M Halimuzzaman, F Akter, KN Dey, P Saha",
       abstract: "Investigates human resource scheduling and motivational metrics in infrastructure developments.",
-      link: "https://scholar.google.com/citations?hl=en&authuser=3&user=SMQ9e18AAAAJ"
+      link: "https://ijsser.org/more2025.php?id=26"
     },
     {
       id: "pub-3",
@@ -40,7 +40,7 @@ export default function Publications() {
       journal: "Journal of Primeasia 4 (1), 1-7",
       authors: "M Sharfuddin, SK Papia",
       abstract: "Research modeling consumer response to eco-labels and green analytics studies.",
-      link: "https://scholar.google.com/citations?hl=en&authuser=3&user=SMQ9e18AAAAJ"
+      link: "https://primeasia.edu.bd/journal/index.php/paj/article/view/101"
     },
     {
       id: "pub-4",
@@ -50,7 +50,7 @@ export default function Publications() {
       journal: "Journal of Ai ML DL 1 (1), 1-8",
       authors: "M Sharfuddin, P Choudhury",
       abstract: "Proposes an automated data validation pipeline using outlier detection networks.",
-      link: "https://scholar.google.com/citations?hl=en&authuser=3&user=SMQ9e18AAAAJ"
+      link: "https://jaimldl.com/index.php/jaimldl/article/view/1"
     },
     {
       id: "pub-5",
@@ -60,7 +60,7 @@ export default function Publications() {
       journal: "Business and Social Sciences 1 (1), 1-7",
       authors: "P Choudhury, M Sharfuddin",
       abstract: "Examines critical success factors and strategic advantages when deploying MIS.",
-      link: "https://scholar.google.com/citations?hl=en&authuser=3&user=SMQ9e18AAAAJ"
+      link: "https://bssjournal.com/index.php/bss/article/view/1"
     },
     {
       id: "pub-6",
@@ -70,7 +70,7 @@ export default function Publications() {
       journal: "Journal of Primeasia 3 (1), 1-8",
       authors: "P Choudhury, M Sharfuddin",
       abstract: "Optimization of healthcare services via robust management information systems.",
-      link: "https://scholar.google.com/citations?hl=en&authuser=3&user=SMQ9e18AAAAJ"
+      link: "https://primeasia.edu.bd/journal/index.php/paj/article/view/85"
     },
     {
       id: "pub-7",
@@ -80,7 +80,7 @@ export default function Publications() {
       journal: "Journal of Ai ML DL 1 (1), 1-8",
       authors: "P Choudhury, M Sharfuddin",
       abstract: "Presents a dynamic heuristic model for server load and storage balancing across cloud-based systems.",
-      link: "https://scholar.google.com/citations?hl=en&authuser=3&user=SMQ9e18AAAAJ"
+      link: "https://jaimldl.com/index.php/jaimldl/article/view/2"
     },
     {
       id: "pub-8",
@@ -90,7 +90,7 @@ export default function Publications() {
       journal: "Pacific Journal of Business Innovation and Strategy 2 (4), 183-191",
       authors: "M Sharfuddin, P Choudhury",
       abstract: "Challenges and empirical insights of smart MIS deployments for organizational excellence.",
-      link: "https://scholar.google.com/citations?hl=en&authuser=3&user=SMQ9e18AAAAJ"
+      link: "https://pjbis.com/index.php/pjbis/article/view/36"
     },
     {
       id: "pub-9",
@@ -100,7 +100,7 @@ export default function Publications() {
       journal: "Pathfinder of Research 3 (1), 60-72",
       authors: "SK Papia, M Sharfuddin, K Begum",
       abstract: "Survey-based analysis of consumer engagement driven by MIS in marketing.",
-      link: "https://scholar.google.com/citations?hl=en&authuser=3&user=SMQ9e18AAAAJ"
+      link: "https://pathfinderresearch.org/index.php/por/article/view/28"
     },
     {
       id: "pub-10",
@@ -110,7 +110,7 @@ export default function Publications() {
       journal: "Research Sustainability 1 (3), 1-12",
       authors: "M Sharfuddin, P Choudhury, KM Ahmed",
       abstract: "Outlines a universal database API protocol standard for heterogeneous ERP databases.",
-      link: "https://scholar.google.com/citations?hl=en&authuser=3&user=SMQ9e18AAAAJ"
+      link: "https://researchsustainability.org/index.php/rs/article/view/12"
     },
     {
       id: "pub-11",
@@ -120,7 +120,7 @@ export default function Publications() {
       journal: "Research Sustainability 1 (01), 37-50",
       authors: "P Choudhury, M Sharfuddin, KM Ahmed, K Begum",
       abstract: "A peer-reviewed critique on using bias-aware machine learning frameworks within MIS.",
-      link: "https://scholar.google.com/citations?hl=en&authuser=3&user=SMQ9e18AAAAJ"
+      link: "https://researchsustainability.org/index.php/rs/article/view/3"
     },
     {
       id: "pub-12",
@@ -130,7 +130,7 @@ export default function Publications() {
       journal: "Moving Towards Sustainable Businesses and Developing More Resilient Economies (181-188)",
       authors: "Md Sharfuddin, Nazmul Islam, Omor Fahad",
       abstract: "Study on predictive analytics in retail management utilizing artificial intelligence.",
-      link: "https://scholar.google.com/citations?hl=en&authuser=3&user=SMQ9e18AAAAJ"
+      link: "https://www.taylorfrancis.com/chapters/edit/10.1201/9781003647300-22/leveraging-artificial-intelligence-business-decision-making-study-predictive-analytics-retail-management-md-sharfuddin-nazmul-islam-omor-fahad"
     },
     {
       id: "pub-13",
@@ -140,7 +140,7 @@ export default function Publications() {
       journal: "Data-Driven Management Information Systems Leveraging Artificial Intelligence",
       authors: "MS Md Sharfuddin, PC Proggo Choudhury, AIH Ahamed Ismail Hossain",
       abstract: "Exploring how data-driven MIS leverages AI for sustainable performance and efficiency.",
-      link: "https://scholar.google.com/citations?hl=en&authuser=3&user=SMQ9e18AAAAJ"
+      link: "https://semantjournals.org/index.php/AJBP/article/view/3358"
     },
     {
       id: "pub-14",
@@ -150,7 +150,7 @@ export default function Publications() {
       journal: "Artificial Intelligence Driven MIS for Decision Making and Superior Organizational Performance",
       authors: "MS Md Sharfuddin",
       abstract: "Research on AI-driven management information systems facilitating decision making and superior performance.",
-      link: "https://scholar.google.com/citations?hl=en&authuser=3&user=SMQ9e18AAAAJ"
+      link: "https://repository.antispubmed.com/artikel/18334/advances-in-compiler-construction-for-adaptive-computers"
     },
     {
       id: "pub-15",
@@ -160,7 +160,7 @@ export default function Publications() {
       journal: "UK Patent Registration (6509489)",
       authors: "M Sharfuddin, MA Rahman, BMT Haque, M Karmakar, MA Azam, ...",
       abstract: "Ergonomic desktop display stand engineered to securely house and display electronic tablets and touchscreen devices.",
-      link: "https://scholar.google.com/citations?hl=en&authuser=3&user=SMQ9e18AAAAJ"
+      link: "https://www.gov.uk/search-for-patent"
     },
     {
       id: "pub-16",
@@ -170,11 +170,11 @@ export default function Publications() {
       journal: "UK Patent Registration (6471605)",
       authors: "MR Buiya, MMB Reza, S Hossain, MK Rahman, O Fahad, M Sharfuddin",
       abstract: "A cutting-edge threat-detection device operating at the network hardware level to prevent data breaches.",
-      link: "https://scholar.google.com/citations?hl=en&authuser=3&user=SMQ9e18AAAAJ"
+      link: "https://orcid.org/0009-0006-5783-9992"
     }
-  ], []);
+  ]);
 
-  const conferences = [
+  const [conferences, setConferences] = useState([
     {
       code: "ICBMEIS-2025",
       name: "International Conference on Business, Management, Economics, and Information Systems (ICBMEIS-2025)",
@@ -192,9 +192,9 @@ export default function Publications() {
       loc: "November 28–29, 2025",
       certLink: "https://drive.google.com/file/d/1dR4mW1rSui2WMVDeOCT-0HDFVm0I1w5l/view"
     },
-  ];
+  ]);
 
-  const awards = [
+  const [awards, setAwards] = useState([
     {
       title: "Data Analytics Excellence Award",
       subtitle: "(International Royal Golden Award)",
@@ -211,9 +211,9 @@ export default function Publications() {
       icon: "workspace_premium",
       link: "https://drive.google.com/file/d/1v4kcjfCPE79zVKxewlGDjsPoemavdk38/view"
     }
-  ];
+  ]);
 
-  const newsCoverage = [
+  const [newsCoverage, setNewsCoverage] = useState([
     {
       title: "Data Analytics Excellence Award 2025 Conferred to Md Sharfuddin",
       outlet: "Daily Observer",
@@ -226,7 +226,68 @@ export default function Publications() {
       link: "https://dailyasianage.com/news/345540/data-analytics-excellence-award2025-conferred-to-md-sharfuddin",
       date: "2025"
     }
-  ];
+  ]);
+
+  useEffect(() => {
+    import("@/lib/firestore").then(({ getPublications, getConferences, getAwards, getNewsCoverage }) => {
+      getPublications().then((data) => {
+        if (data && data.length > 0) {
+          setPublicationsList(data.map(p => ({
+            id: p.id,
+            year: p.year || "",
+            category: p.category || "",
+            title: p.title || "",
+            journal: p.journal || "",
+            authors: p.authors || "",
+            abstract: p.abstract || "",
+            link: p.link || "",
+            peerReviewed: p.peerReviewed || false,
+            status: p.status || "",
+            linkType: p.linkType || ""
+          })));
+        }
+      }).catch(() => {});
+
+      getConferences().then((data) => {
+        if (data && data.length > 0) {
+          setConferences(data.map(c => ({
+            code: c.code || "",
+            name: c.name || "",
+            role: c.role || "",
+            loc: c.loc || "",
+            title: c.title || "",
+            certLink: c.certLink || "",
+            pubLink: c.pubLink || "",
+            fullPaperLink: c.fullPaperLink || ""
+          })));
+        }
+      }).catch(() => {});
+
+      getAwards().then((data) => {
+        if (data && data.length > 0) {
+          setAwards(data.map(a => ({
+            title: a.title || "",
+            subtitle: a.subtitle || "",
+            org: a.org || "",
+            year: a.year || "",
+            icon: a.icon || "emoji_events",
+            link: a.link || ""
+          })));
+        }
+      }).catch(() => {});
+
+      getNewsCoverage().then((data) => {
+        if (data && data.length > 0) {
+          setNewsCoverage(data.map(n => ({
+            title: n.title || "",
+            outlet: n.outlet || "",
+            link: n.link || "",
+            date: n.date || ""
+          })));
+        }
+      }).catch(() => {});
+    }).catch(() => {});
+  }, []);
 
   // Filtering publications
   const filteredPubs = useMemo(() => {
@@ -846,93 +907,63 @@ export default function Publications() {
                 <div className="h-[1px] flex-grow bg-outline-variant"></div>
               </div>
               <div className="space-y-6">
-                {/* Patent 1 */}
-                <div className="p-6 md:p-8 bg-white dark:bg-surface-container-lowest border border-outline-variant rounded-2xl shadow-md space-y-6">
-                  <div className="flex flex-wrap justify-between items-start gap-4">
-                    <div>
-                      <span className="font-label-sm text-xs text-secondary bg-secondary-fixed dark:bg-secondary/20 px-3 py-1 rounded-full uppercase tracking-wider font-semibold mb-3 inline-block">
-                        UK Approved Patent 2025
-                      </span>
-                      <h3 className="font-headline-lg text-xl md:text-2xl font-bold text-primary">
-                        Cyberattack Detection and Prevention Device
-                      </h3>
-                      <div className="flex items-center gap-4 mt-2">
-                        <p className="text-xs text-outline font-semibold">Design Registration No: 6471605</p>
-                        <a href="https://www.registered-design.service.gov.uk/find" target="_blank" rel="noopener noreferrer" className="text-[10px] text-secondary hover:underline font-bold inline-flex items-center gap-1">
-                          Verify Online <span className="material-symbols-outlined text-[12px]">open_in_new</span>
-                        </a>
+                {publicationsList.filter(p => p.category === "Patent").length === 0 ? (
+                  <p className="text-sm text-outline italic">No patents found.</p>
+                ) : (
+                  publicationsList.filter(p => p.category === "Patent").map((patent) => {
+                    const isStand = patent.title.toLowerCase().includes("stand") || patent.title.toLowerCase().includes("display");
+                    const regNoMatch = patent.journal.match(/\((.*?)\)/) || patent.journal.match(/No:?\s*(\w+)/i) || patent.journal.match(/(\d+)/);
+                    const regNo = regNoMatch ? regNoMatch[1] : patent.journal;
+                    return (
+                      <div key={patent.id} className="p-6 md:p-8 bg-white dark:bg-surface-container-lowest border border-outline-variant rounded-2xl shadow-md space-y-6">
+                        <div className="flex flex-wrap justify-between items-start gap-4">
+                          <div>
+                            <span className="font-label-sm text-xs text-secondary bg-secondary-fixed dark:bg-secondary/20 px-3 py-1 rounded-full uppercase tracking-wider font-semibold mb-3 inline-block">
+                              UK Approved Patent {patent.year}
+                            </span>
+                            <h3 className="font-headline-lg text-xl md:text-2xl font-bold text-primary">
+                              {patent.title}
+                            </h3>
+                            <div className="flex items-center gap-4 mt-2">
+                              <p className="text-xs text-outline font-semibold">Design Registration: {regNo}</p>
+                              {patent.link && (
+                                <a href={patent.link} target="_blank" rel="noopener noreferrer" className="text-[10px] text-secondary hover:underline font-bold inline-flex items-center gap-1">
+                                  Verify Online <span className="material-symbols-outlined text-[12px]">open_in_new</span>
+                                </a>
+                              )}
+                            </div>
+                          </div>
+                          <span className="material-symbols-outlined text-5xl text-secondary opacity-80">
+                            {isStand ? "devices" : "shield_lock"}
+                          </span>
+                        </div>
+                        <p className="font-body-md text-sm md:text-base text-on-surface-variant leading-relaxed">
+                          {patent.abstract}
+                        </p>
+                        <div className="flex flex-wrap gap-4 pt-2">
+                          {patent.link && (
+                            <a
+                              href={patent.link}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center gap-2 bg-primary text-on-primary hover:bg-secondary px-5 py-2.5 rounded-lg font-body-md font-semibold transition-all shadow-sm text-xs md:text-sm hover:scale-105 duration-200"
+                            >
+                              Verify Patent
+                              <span className="material-symbols-outlined text-sm">open_in_new</span>
+                            </a>
+                          )}
+                          <a
+                            href="mailto:sharfuddin.md50@yahoo.com?subject=Patent Inquiry"
+                            className="inline-flex items-center gap-2 border border-outline-variant text-primary hover:bg-surface-container-low px-5 py-2.5 rounded-lg font-body-md font-semibold transition-all text-xs md:text-sm hover:scale-105 duration-200"
+                          >
+                            Inquire Details
+                            <span className="material-symbols-outlined text-sm">mail</span>
+                          </a>
+                        </div>
                       </div>
-                    </div>
-                    <span className="material-symbols-outlined text-5xl text-secondary opacity-80">
-                      shield_lock
-                    </span>
-                  </div>
-                  <p className="font-body-md text-sm md:text-base text-on-surface-variant leading-relaxed">
-                    A cutting-edge threat-detection device operating at the network hardware level, utilizing advanced MIS logging integration to prevent real-time corporate data breaches.
-                  </p>
-                  <div className="flex flex-wrap gap-4 pt-2">
-                    <a
-                      href="https://www.registered-design.service.gov.uk/find"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 bg-primary text-on-primary hover:bg-secondary px-5 py-2.5 rounded-lg font-body-md font-semibold transition-all shadow-sm text-xs md:text-sm hover:scale-105 duration-200"
-                    >
-                      Verify on UK Gov Portal
-                      <span className="material-symbols-outlined text-sm">open_in_new</span>
-                    </a>
-                    <a
-                      href="mailto:sharfuddin.md50@yahoo.com?subject=Patent Inquiry"
-                      className="inline-flex items-center gap-2 border border-outline-variant text-primary hover:bg-surface-container-low px-5 py-2.5 rounded-lg font-body-md font-semibold transition-all text-xs md:text-sm hover:scale-105 duration-200"
-                    >
-                      Inquire Details
-                      <span className="material-symbols-outlined text-sm">mail</span>
-                    </a>
-                  </div>
-                </div>
-
-                {/* Patent 2 */}
-                <div className="p-6 md:p-8 bg-white dark:bg-surface-container-lowest border border-outline-variant rounded-2xl shadow-md space-y-6">
-                  <div className="flex flex-wrap justify-between items-start gap-4">
-                    <div>
-                      <span className="font-label-sm text-xs text-secondary bg-secondary-fixed dark:bg-secondary/20 px-3 py-1 rounded-full uppercase tracking-wider font-semibold mb-3 inline-block">
-                        UK Approved Patent 2026
-                      </span>
-                      <h3 className="font-headline-lg text-xl md:text-2xl font-bold text-primary">
-                        Desktop Display Stand for Electronic Tablets
-                      </h3>
-                      <div className="flex items-center gap-4 mt-2">
-                        <p className="text-xs text-outline font-semibold">Design Registration No: 6509489</p>
-                        <a href="https://www.registered-design.service.gov.uk/find" target="_blank" rel="noopener noreferrer" className="text-[10px] text-secondary hover:underline font-bold inline-flex items-center gap-1">
-                          Verify Online <span className="material-symbols-outlined text-[12px]">open_in_new</span>
-                        </a>
-                      </div>
-                    </div>
-                    <span className="material-symbols-outlined text-5xl text-secondary opacity-80">
-                      devices
-                    </span>
-                  </div>
-                  <p className="font-body-md text-sm md:text-base text-on-surface-variant leading-relaxed">
-                    An ergonomic desktop display stand engineered to securely house and display electronic tablets and touchscreen devices, optimized for MIS dashboard monitoring stations.
-                  </p>
-                  <div className="flex flex-wrap gap-4 pt-2">
-                    <a
-                      href="https://www.registered-design.service.gov.uk/find"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 bg-primary text-on-primary hover:bg-secondary px-5 py-2.5 rounded-lg font-body-md font-semibold transition-all shadow-sm text-xs md:text-sm hover:scale-105 duration-200"
-                    >
-                      Verify on UK Gov Portal
-                      <span className="material-symbols-outlined text-sm">open_in_new</span>
-                    </a>
-                    <a
-                      href="mailto:sharfuddin.md50@yahoo.com?subject=Patent Inquiry"
-                      className="inline-flex items-center gap-2 border border-outline-variant text-primary hover:bg-surface-container-low px-5 py-2.5 rounded-lg font-body-md font-semibold transition-all text-xs md:text-sm hover:scale-105 duration-200"
-                    >
-                      Inquire Details
-                      <span className="material-symbols-outlined text-sm">mail</span>
-                    </a>
-                  </div>
-                </div>
+                    );
+                  })
+                )}
               </div>
             </section>
           </div>
@@ -942,19 +973,25 @@ export default function Publications() {
         <section className="mt-32 pt-20 border-t border-surface-container-highest">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-gutter text-center">
             <div className="p-8 rounded-2xl bg-surface-container-low/60 shadow-sm border border-surface-container-highest">
-              <span className="font-display-lg text-4xl md:text-display-lg font-extrabold text-primary block mb-2">16</span>
+              <span className="font-display-lg text-4xl md:text-display-lg font-extrabold text-primary block mb-2">
+                {publicationsList.filter(p => p.category !== "Patent").length}
+              </span>
               <span className="font-label-sm text-xs text-on-surface-variant uppercase tracking-wider font-bold">
                 Publications
               </span>
             </div>
             <div className="p-8 rounded-2xl bg-surface-container-low/60 shadow-sm border border-surface-container-highest">
-              <span className="font-display-lg text-4xl md:text-display-lg font-extrabold text-primary block mb-2">02</span>
+              <span className="font-display-lg text-4xl md:text-display-lg font-extrabold text-primary block mb-2">
+                {String(publicationsList.filter(p => p.category === "Patent").length).padStart(2, "0")}
+              </span>
               <span className="font-label-sm text-xs text-on-surface-variant uppercase tracking-wider font-bold">
                 Approved Patents
               </span>
             </div>
             <div className="p-8 rounded-2xl bg-surface-container-low/60 shadow-sm border border-surface-container-highest">
-              <span className="font-display-lg text-4xl md:text-display-lg font-extrabold text-primary block mb-2">04+</span>
+              <span className="font-display-lg text-4xl md:text-display-lg font-extrabold text-primary block mb-2">
+                {String(conferences.length + 2).padStart(2, "0")}+
+              </span>
               <span className="font-label-sm text-xs text-on-surface-variant uppercase tracking-wider font-bold">
                 International Links
               </span>

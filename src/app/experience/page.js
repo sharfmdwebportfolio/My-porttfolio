@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -9,7 +9,7 @@ export default function Experience() {
   const [expandedJob, setExpandedJob] = useState(null);
   const [selectedSkill, setSelectedSkill] = useState("SQL");
 
-  const experiences = [
+  const [experiences, setExperiences] = useState([
     {
       id: "upskill",
       date: "08/2025 – Present",
@@ -72,9 +72,9 @@ export default function Experience() {
         "Collaborated with retail data teams to pinpoint stock discrepancies, reducing waste margins.",
       ],
     },
-  ];
+  ]);
 
-  const education = [
+  const [education, setEducation] = useState([
     {
       date: "2023 – 2025",
       degree: "MBA in MIS",
@@ -99,9 +99,9 @@ export default function Experience() {
         "Completed coursework in Business Statistics, Managerial Accounting, and Financial Risk Management"
       ]
     },
-  ];
+  ]);
 
-  const skillsData = {
+  const [skillsData, setSkillsData] = useState({
     SQL: "Developed complex queries, subqueries, and table joins to extract insights from transactional databases. Experience with query optimization.",
     Python: "Used for data analysis, cleaning with Pandas/NumPy, and building predictive machine learning models in academic/professional research.",
     "R Language": "Applied for research statistics, hypothesis testing, regression models, and plotting academic publications graphs.",
@@ -110,9 +110,9 @@ export default function Experience() {
     "Power BI": "Created dynamic dashboards, dashboards on sales patterns, and linked metrics charts for business administration.",
     Tableau: "Built premium interactive reports for MIS stakeholders, visualizing regression and predictive forecasting outputs.",
     "KPI Measurement": "Formulated performance indicators for construction employee metrics and organizational logistics.",
-  };
+  });
 
-  const skillGroups = [
+  const [skillGroups, setSkillGroups] = useState([
     {
       category: "Programming & Analysis",
       items: ["SQL", "Python", "R Language", "Hypothesis Testing"],
@@ -121,9 +121,9 @@ export default function Experience() {
       category: "Data Tools & BI",
       items: ["Google BigQuery", "Power BI", "Tableau", "KPI Measurement"],
     },
-  ];
+  ]);
 
-  const memberships = [
+  const [memberships, setMemberships] = useState([
     {
       title: "IEEE Member",
       org: "Institute of Electrical and Electronics Engineers",
@@ -134,7 +134,101 @@ export default function Experience() {
       org: "International Society for Data Science and Analytics",
       icon: "verified",
     },
-  ];
+  ]);
+
+  const [awards, setAwards] = useState([
+    {
+      title: "Data Analytics Excellence Award (2025)",
+      org: "Academic Year: 2025",
+      icon: "emoji_events"
+    },
+    {
+      title: "Royal Golden Fellow (FRAEL)",
+      org: "Fellow of ERU",
+      icon: "military_tech"
+    }
+  ]);
+
+  useEffect(() => {
+    import("@/lib/firestore").then(({ getExperiences, getEducation, getSkills, getMemberships, getAwards }) => {
+      getExperiences().then((data) => {
+        if (data && data.length > 0) {
+          // Format bullet strings to arrays if saved as comma/newline separated in admin dashboard
+          const formatted = data.map((exp) => {
+            let bullets = exp.bullets || [];
+            if (typeof bullets === "string") {
+              bullets = bullets.split("\n").map(b => b.trim()).filter(Boolean);
+            }
+            let achievements = exp.achievements || [];
+            if (typeof achievements === "string") {
+              achievements = achievements.split("\n").map(a => a.trim()).filter(Boolean);
+            }
+            return {
+              id: exp.id,
+              date: exp.date || "",
+              title: exp.title || "",
+              company: exp.company || "",
+              location: exp.location || "",
+              active: exp.active || false,
+              bullets,
+              achievements
+            };
+          });
+          setExperiences(formatted);
+        }
+      }).catch(() => {});
+
+      getEducation().then((data) => {
+        if (data && data.length > 0) {
+          const formatted = data.map((edu) => {
+            let highlights = edu.highlights || [];
+            if (typeof highlights === "string") {
+              highlights = highlights.split("\n").map(h => h.trim()).filter(Boolean);
+            }
+            return {
+              date: edu.date || "",
+              degree: edu.degree || "",
+              school: edu.school || "",
+              location: edu.location || "",
+              active: edu.active || false,
+              highlights
+            };
+          });
+          setEducation(formatted);
+        }
+      }).catch(() => {});
+
+      getSkills().then((data) => {
+        if (data && data.skillGroups && data.skillsData) {
+          setSkillGroups(data.skillGroups);
+          setSkillsData(data.skillsData);
+          if (data.skillGroups.length > 0 && data.skillGroups[0].items.length > 0) {
+            setSelectedSkill(data.skillGroups[0].items[0]);
+          }
+        }
+      }).catch(() => {});
+
+      getMemberships().then((data) => {
+        if (data && data.length > 0) {
+          setMemberships(data.map(m => ({
+            title: m.title || "",
+            org: m.org || "",
+            icon: m.icon || "workspace_premium"
+          })));
+        }
+      }).catch(() => {});
+
+      getAwards().then((data) => {
+        if (data && data.length > 0) {
+          setAwards(data.map(a => ({
+            title: a.title || "",
+            org: a.org || "",
+            icon: a.icon || "emoji_events"
+          })));
+        }
+      }).catch(() => {});
+    }).catch(() => {});
+  }, []);
 
   return (
     <div className="min-h-screen flex flex-col bg-background text-on-surface transition-colors duration-300">
@@ -400,22 +494,23 @@ export default function Experience() {
             <section className="p-6 md:p-8 border border-outline-variant rounded-xl bg-white dark:bg-surface-container-lowest">
               <h3 className="font-headline-md text-lg font-bold text-deep-navy mb-6">Recent Honors</h3>
               <div className="space-y-4">
-                <div className="flex gap-4 items-center">
-                  <div className="text-secondary shrink-0">
-                    <span className="material-symbols-outlined text-xl">emoji_events</span>
+                {awards.map((award, idx) => (
+                  <div key={idx} className="flex gap-4 items-center">
+                    <div className="text-secondary shrink-0">
+                      <span className="material-symbols-outlined text-xl">{award.icon || "emoji_events"}</span>
+                    </div>
+                    <div>
+                      <p className="font-body-md text-xs md:text-sm text-on-surface-variant font-bold">
+                        {award.title}
+                      </p>
+                      {award.org && (
+                        <p className="text-[10px] text-outline font-semibold">
+                          {award.org}
+                        </p>
+                      )}
+                    </div>
                   </div>
-                  <p className="font-body-md text-xs md:text-sm text-on-surface-variant">
-                    Data Analytics Excellence Award (2025)
-                  </p>
-                </div>
-                <div className="flex gap-4 items-center">
-                  <div className="text-secondary shrink-0">
-                    <span className="material-symbols-outlined text-xl">military_tech</span>
-                  </div>
-                  <p className="font-body-md text-xs md:text-sm text-on-surface-variant">
-                    Royal Golden Fellow (FRAEL)
-                  </p>
-                </div>
+                ))}
               </div>
             </section>
           </div>

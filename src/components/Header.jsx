@@ -30,6 +30,18 @@ export default function Header() {
     }
   };
 
+  const [cvLink, setCvLink] = useState("https://drive.google.com/file/d/1gY4ggrCjIUSrV2sJgMMK_wCcKt4FEP8q/view?usp=sharing");
+
+  useEffect(() => {
+    import("@/lib/firestore").then(({ getProfile }) => {
+      getProfile().then((data) => {
+        if (data && data.cvLink) {
+          setCvLink(data.cvLink);
+        }
+      }).catch(() => {});
+    }).catch(() => {});
+  }, []);
+
   const navItems = [
     { name: "Home", href: "/" },
     { name: "Research Interests", href: "/research" },
@@ -84,7 +96,7 @@ export default function Header() {
           </button>
 
           <a
-            href="https://drive.google.com/file/d/1gY4ggrCjIUSrV2sJgMMK_wCcKt4FEP8q/view?usp=sharing"
+            href={cvLink}
             target="_blank"
             rel="noopener noreferrer"
             className="bg-primary text-on-primary px-4 py-2 rounded-lg font-body-md font-semibold hover:bg-secondary hover:text-on-secondary hover:scale-105 active:scale-95 transition-all duration-200 shadow-sm text-sm"

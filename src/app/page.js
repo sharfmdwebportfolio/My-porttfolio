@@ -13,6 +13,45 @@ export default function Home() {
   const [currentText, setCurrentText] = useState("");
   const [textIndex, setTextIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
+  const [profile, setProfile] = useState({
+    name: "Md Sharfuddin",
+    title: "MBA in MIS | AI & Data Analytics Researcher | Business Analyst",
+    subtitle: "Published Researcher | Patent Holder | Guest Lecturer",
+    bio: "Bridging business strategy, intelligent information systems, and data-driven decision science. Specializing in machine learning and predictive analytics to optimize enterprise MIS frameworks.",
+    location: "Los Angeles, CA",
+    email: "sharfuddin.md50@yahoo.com",
+    photoUrl: "/image 1.jpeg",
+  });
+  const [featuredPubs, setFeaturedPubs] = useState([
+    {
+      year: "2025",
+      category: "Supply Chain",
+      title: "Enhancing supply chain resilience across US regions using machine learning and logistics performance analytics",
+      abstract: "Supply chain resilience using machine learning analytics to optimize logistical performance.",
+    },
+    {
+      year: "2025",
+      category: "MIS Focus",
+      title: "Enhancing data reliability in management information systems through artificial intelligence driven validation and error detection models",
+      abstract: "Proposes an automated data validation pipeline using outlier detection networks.",
+    }
+  ]);
+
+  useEffect(() => {
+    import("@/lib/firestore").then(({ getProfile, getPublications }) => {
+      getProfile().then((data) => {
+        if (data) setProfile((p) => ({ ...p, ...data }));
+      }).catch(() => {});
+      
+      getPublications().then((data) => {
+        if (data && data.length > 0) {
+          // Sort by year desc and take top 2
+          const sorted = [...data].sort((a, b) => (b.year || "").localeCompare(a.year || ""));
+          setFeaturedPubs(sorted.slice(0, 2));
+        }
+      }).catch(() => {});
+    }).catch(() => {});
+  }, []);
   
   const keywords = [
     "Management Information Systems",
@@ -87,14 +126,14 @@ export default function Home() {
                 Academic Portfolio &amp; Research
               </span>
               <h1 className="font-display-lg text-4xl md:text-5xl lg:text-display-lg text-primary tracking-tight font-extrabold leading-none">
-                Md Sharfuddin
+                {profile.name}
               </h1>
               <div className="flex flex-col gap-2">
                 <h2 className="font-headline-lg text-xl md:text-2xl lg:text-[25px] text-deep-navy leading-snug font-bold">
-                  MBA in MIS | AI &amp; Data Analytics Researcher | Business Analyst
+                  {profile.title}
                 </h2>
                 <h3 className="font-headline-md text-base md:text-lg text-secondary font-semibold">
-                  Published Researcher | Patent Holder | Guest Lecturer
+                  {profile.subtitle}
                 </h3>
                 <div className="text-sm font-semibold text-on-surface-variant flex items-center gap-2 mt-1 min-h-[24px]">
                   <span className="w-2 h-2 rounded-full bg-secondary shrink-0 animate-pulse"></span>
@@ -102,20 +141,24 @@ export default function Home() {
                 </div>
               </div>
               <p className="font-body-lg text-sm md:text-base text-on-surface-variant max-w-2xl leading-relaxed">
-                Bridging business strategy, intelligent information systems, and data-driven decision science. Specializing in machine learning and predictive analytics to optimize enterprise MIS frameworks.
+                {profile.bio}
               </p>
               
               <div className="flex flex-wrap gap-4 pt-2">
-                <div className="flex items-center gap-2 text-on-surface-variant">
-                  <span className="material-symbols-outlined text-secondary text-xl">location_on</span>
-                  <span className="font-body-md text-sm md:text-base font-medium">Los Angeles, CA</span>
-                </div>
-                <div className="flex items-center gap-2 text-on-surface-variant">
-                  <span className="material-symbols-outlined text-secondary text-xl">mail</span>
-                  <a href="mailto:sharfuddin.md50@yahoo.com" className="font-body-md text-sm md:text-base font-semibold hover:underline">
-                    sharfuddin.md50@yahoo.com
-                  </a>
-                </div>
+                {profile.location && (
+                  <div className="flex items-center gap-2 text-on-surface-variant">
+                    <span className="material-symbols-outlined text-secondary text-xl">location_on</span>
+                    <span className="font-body-md text-sm md:text-base font-medium">{profile.location}</span>
+                  </div>
+                )}
+                {profile.email && (
+                  <div className="flex items-center gap-2 text-on-surface-variant">
+                    <span className="material-symbols-outlined text-secondary text-xl">mail</span>
+                    <a href={`mailto:${profile.email}`} className="font-body-md text-sm md:text-base font-semibold hover:underline">
+                      {profile.email}
+                    </a>
+                  </div>
+                )}
               </div>
 
               <div className="flex flex-wrap gap-4 pt-4">
@@ -137,13 +180,11 @@ export default function Home() {
 
             <div className="md:col-span-5 relative w-full flex justify-center reveal-section">
               <div className="relative w-full max-w-[400px] aspect-square rounded-2xl overflow-hidden border border-surface-container-highest shadow-2xl bg-white dark:bg-surface-container-lowest p-2">
-                <Image
-                  alt="Md Sharfuddin Portrait"
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  alt={`${profile.name} Portrait`}
                   className="w-full h-full object-cover rounded-xl"
-                  src="/image 1.jpeg"
-                  width={362}
-                  height={362}
-                  priority
+                  src={profile.photoUrl || "/image 1.jpeg"}
                 />
               </div>
               <div className="absolute -bottom-6 -left-6 bg-white dark:bg-surface-container-lowest p-4 rounded-2xl border border-outline-variant shadow-xl flex flex-col gap-2.5 max-w-[250px] z-20 hover:scale-[1.03] transition-transform duration-300 hidden sm:flex">
@@ -200,7 +241,7 @@ export default function Home() {
                     Biography &amp; Academic Focus
                   </h3>
                   <p className="font-body-md text-sm text-on-surface-variant leading-relaxed mb-4">
-                    Md Sharfuddin is an AI-driven MIS researcher and business analyst specializing in strategic IT alignment, machine learning-based decision engines, and data security. With an academic background bridging finance and management information systems, his research addresses critical bottlenecks in modern organizational workflows.
+                    {profile.name} is an AI-driven MIS researcher and business analyst specializing in strategic IT alignment, machine learning-based decision engines, and data security. With an academic background bridging finance and management information systems, his research addresses critical bottlenecks in modern organizational workflows.
                   </p>
                   <p className="font-body-md text-sm text-on-surface-variant leading-relaxed mb-4">
                     His work focuses on implementing predictive analytics to drive sustainable consumer habits, constructing robust supply chain schedules, and mitigating cybersecurity threats. His recent UK-approved patent showcases his capacity to engineer hardware-level intrusion prevention systems integrated directly with enterprise MIS logs.
@@ -370,29 +411,25 @@ export default function Home() {
                     Featured Publications
                   </h3>
                   <div className="space-y-6">
-                    <div>
-                      <span className="font-label-sm text-[10px] text-secondary font-bold uppercase tracking-wider">
-                        Supply Chain • 2025
-                      </span>
-                      <h4 className="font-headline-md text-sm md:text-base font-bold text-primary mt-1 mb-1 leading-tight">
-                        Enhancing supply chain resilience across US regions using machine learning and logistics performance analytics
-                      </h4>
-                      <p className="text-xs text-on-surface-variant line-clamp-2">
-                        Supply chain resilience using machine learning analytics to optimize logistical performance.
-                      </p>
-                    </div>
-
-                    <div className="border-t border-outline-variant/60 pt-4">
-                      <span className="font-label-sm text-[10px] text-secondary font-bold uppercase tracking-wider">
-                        MIS Focus • 2025
-                      </span>
-                      <h4 className="font-headline-md text-sm md:text-base font-bold text-primary mt-1 mb-1 leading-tight">
-                        Enhancing data reliability in management information systems through artificial intelligence driven validation and error detection models
-                      </h4>
-                      <p className="text-xs text-on-surface-variant line-clamp-2">
-                        Proposes an automated data validation pipeline using outlier detection networks.
-                      </p>
-                    </div>
+                    {featuredPubs.map((pub, idx) => (
+                      <div key={pub.id || idx} className={idx > 0 ? "border-t border-outline-variant/60 pt-4" : ""}>
+                        <span className="font-label-sm text-[10px] text-secondary font-bold uppercase tracking-wider">
+                          {pub.category} • {pub.year}
+                        </span>
+                        <h4 className="font-headline-md text-sm md:text-base font-bold text-primary mt-1 mb-1 leading-tight line-clamp-2">
+                          {pub.title}
+                        </h4>
+                        {pub.abstract ? (
+                          <p className="text-xs text-on-surface-variant line-clamp-2">
+                            {pub.abstract}
+                          </p>
+                        ) : pub.journal ? (
+                          <p className="text-xs text-on-surface-variant line-clamp-2">
+                            {pub.journal}
+                          </p>
+                        ) : null}
+                      </div>
+                    ))}
                   </div>
                 </div>
 

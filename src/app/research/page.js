@@ -4,80 +4,200 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-
 export default function Research() {
-  const [activeInterest, setActiveInterest] = useState("predictive");
+  const [activeInterest, setActiveInterest] = useState("mis_ai");
+  const [interests, setInterests] = useState({
+    mis_ai: {
+      title: "AI-Driven Management Information Systems",
+      icon: "settings_applications",
+      color: "from-blue-600 to-indigo-700",
+      tagline: "Integrating artificial intelligence into MIS frameworks for smarter, more reliable enterprise decision-making.",
+      overview: "My primary research focus is on how Artificial Intelligence can be embedded within Management Information Systems to enhance data reliability, reduce operational errors, and automate decision workflows. This includes designing AI-driven validation models, error detection pipelines, and smart dashboards that replace manual oversight in organizational data environments. Published across multiple peer-reviewed journals including Journal of AI ML DL, Research Sustainability, and Pacific Journal of Business Innovation and Strategy.",
+      questions: [
+        "How can AI-driven validation frameworks reduce data errors within large-scale enterprise MIS environments?",
+        "What machine learning architectures best support real-time decision automation for organizational leadership?",
+        "How does integrating AI into MIS affect long-term business performance and cost management?"
+      ],
+      methodology: ["AI Validation Pipelines", "Outlier Detection Networks", "Predictive Machine Learning Models", "Smart Dashboard Design", "Data Integrity Frameworks"],
+      publications: [
+        { title: "Enhancing data reliability in MIS through AI-driven validation and error detection models", type: "Journal Paper", year: "2025" },
+        { title: "Optimizing Resource Allocation and Operational Efficiency in MIS Using Predictive Machine Learning", type: "Journal Paper", year: "2025" },
+        { title: "Data-Driven MIS Leveraging AI for Sustainable Business Performance", type: "Journal Paper", year: "2025" },
+        { title: "AI-Driven MIS for Decision Making and Superior Organizational Performance", type: "Journal Paper", year: "2025" }
+      ]
+    },
+    supply_chain: {
+      title: "Supply Chain Analytics & Logistics",
+      icon: "inventory",
+      color: "from-emerald-600 to-teal-700",
+      tagline: "Using machine learning to build resilient, data-driven supply chain systems across US regions.",
+      overview: "This research stream focuses on applying machine learning techniques to logistics performance data to identify bottlenecks, predict disruptions, and strengthen supply chain resilience. My published work specifically examines cross-regional logistics performance patterns across the United States, proposing regression-based and ML-driven models to improve raw material flow, warehouse efficiency, and delivery reliability. Published in the International Journal of Applied Mathematics (2025).",
+      questions: [
+        "How can machine learning models accurately predict supply chain disruptions across diverse US regional logistics networks?",
+        "What logistics performance indicators are most predictive of long-term supply chain resilience?"
+      ],
+      methodology: ["Regression Analysis", "Random Forest Algorithms", "Logistics Performance Indexing", "Time-Series Forecasting", "Regional Data Clustering"],
+      publications: [
+        { title: "Enhancing supply chain resilience across US regions using machine learning and logistics performance analytics", type: "Journal Paper", year: "2025" }
+      ]
+    },
+    sustainability: {
+      title: "Sustainability & Green Marketing Intelligence",
+      icon: "eco",
+      color: "from-amber-600 to-orange-700",
+      tagline: "Leveraging MIS and data analytics to drive sustainable consumer engagement and green business practices.",
+      overview: "This research explores how Management Information Systems, when aligned with green marketing strategies, can drive measurable improvements in sustainable consumer behaviour. It examines the role of data analytics in identifying eco-conscious consumer segments, designing targeted green campaigns, and measuring their long-term impact on brand loyalty and revenue. Also covers how AI-driven MIS can support economic sustainability, social equity, and cost efficiency across multiple sectors. Published in Journal of Primeasia and Research Sustainability.",
+      questions: [
+        "How can MIS-driven green marketing intelligence increase sustainable purchase behaviour among target consumer segments?",
+        "What role does AI-powered MIS play in reducing organizational costs while improving social equity outcomes?"
+      ],
+      methodology: ["Consumer Survey Analysis", "Green Analytics Frameworks", "Social Equity Metrics", "Cost-Benefit Modeling", "Quantitative Research Design"],
+      publications: [
+        { title: "MIS-Driven Green Marketing Intelligence for Sustainable Consumer Engagement", type: "Journal Paper", year: "2023" },
+        { title: "Integrating MIS in Marketing: Consumer Engagement via Data Analytics", type: "Journal Paper", year: "2022" },
+        { title: "AI-Driven MIS for Enhancing Social Equity, Economic Sustainability and Managing Costs", type: "Journal Paper", year: "2024" }
+      ]
+    },
+    healthcare_org: {
+      title: "Healthcare & Organizational MIS",
+      icon: "local_hospital",
+      color: "from-rose-600 to-pink-700",
+      tagline: "Optimizing healthcare services and workforce performance through strategic Management Information Systems.",
+      overview: "This domain investigates how MIS can be strategically deployed within healthcare organizations and construction engineering environments to improve service delivery, resource allocation, and employee motivation. The healthcare research proposes frameworks for overcoming structural barriers in hospital information management. The organizational research examines motivational dynamics among engineering project teams and how human factors influence digital system adoption and performance outcomes. Published in Journal of Primeasia and International Journal of Social Science and Economic Research.",
+      questions: [
+        "What MIS architectural strategies best overcome information silos in healthcare service delivery systems?",
+        "What do employee motivation and behavioural dynamics affect digital MIS adoption in construction engineering projects?"
+      ],
+      methodology: ["Healthcare Systems Analysis", "Employee Motivation Surveys", "Quantitative & Qualitative Mixed Methods", "Organizational Behaviour Frameworks", "MIS Structural Auditing"],
+      publications: [
+        { title: "Strategic Healthcare Service Optimization through Management Information Systems", type: "Journal Paper", year: "2022" },
+        { title: "Employee Motivation and Behavior in Construction Engineering Projects", type: "Journal Paper", year: "2025" },
+        { title: "Smart MIS for Data-Driven Organizational Excellence: Multi-Sector Empirical Insights", type: "Journal Paper", year: "2025" }
+      ]
+    }
+  });
 
   useEffect(() => {
     document.title = "Research Interests | Md Sharfuddin";
-  }, []);
 
-  const interests = {
-    predictive: {
-      title: "Predictive Analytics",
-      icon: "analytics",
-      color: "from-blue-600 to-indigo-700",
-      tagline: "Forecasting market trends, consumer behaviour, and logistics via machine learning.",
-      overview: "Harnessing predictive modeling to address enterprise challenges, utilizing regression modeling, deep learning classifiers, and time-series analysis to transform historical logs into forward-looking foresight.",
-      questions: [
-        "How can AI-driven transparency models accurately predict and stimulate sustainable green purchase decisions?",
-        "Can neural networks reliably forecast container scheduling delays to build responsive supply chain reserves?"
-      ],
-      methodology: ["Deep Learning Classifiers", "Regression Analysis", "Random Forest Algorithms", "TensorFlow & Python Tools"],
-      publications: [
-        { title: "AI-Driven Sustainable Consumer Behaviour", type: "Journal Paper", year: "2026" },
-        { title: "Enhancing supply chain resilience using ML", type: "Journal Paper", year: "2025" }
-      ]
-    },
-    dss: {
-      title: "Decision Support Systems (DSS)",
-      icon: "settings_suggest",
-      color: "from-emerald-600 to-teal-700",
-      tagline: "Designing cognitive dashboards to empower executive and management choices.",
-      overview: "Exploring the backend architectures and frontend visualizations of modern Decision Support Systems. Investigating how complex multi-source database queries can be aggregated in real-time to facilitate strategic planning.",
-      questions: [
-        "What data architectures best support real-time resource allocations in server systems?",
-        "How can automated outlier-detection pipelines safeguard data reliability within organizational decision loops?"
-      ],
-      methodology: ["Heuristic Scheduling Models", "Outlier Validation Pipelines", "Enterprise Warehousing", "API Integration Protocols"],
-      publications: [
-        { title: "Optimizing Resource Allocation in MIS", type: "Journal Paper", year: "2025" },
-        { title: "Enhancing data reliability in MIS through AI", type: "Journal Paper", year: "2025" }
-      ]
-    },
-    alignment: {
-      title: "Strategic Alignment in MIS",
-      icon: "hub",
-      color: "from-amber-600 to-orange-700",
-      tagline: "Connecting corporate information infrastructures directly to business strategy.",
-      overview: "Analyzing the synergy between database structures, Enterprise Resource Planning (ERP) integrations, and high-level corporate visions to ensure digital tools actively maximize business value and operational speed.",
-      questions: [
-        "What frameworks ensure zero-latency synergy when integrating legacy ERP systems with modern MIS platforms?",
-        "How does system alignment impact long-term corporate agility and data integrity?"
-      ],
-      methodology: ["Universal Database API Standards", "Strategic Fit Models", "ERP Infrastructure Auditing", "Organizational Synergy Mapping"],
-      publications: [
-        { title: "Integration of Universal MIS", type: "Journal Paper", year: "2024" },
-        { title: "Smart MIS for Data-Driven Organizational Excellence", type: "Journal Paper", year: "2025" }
-      ]
-    },
-    human: {
-      title: "Human Factors in MIS",
-      icon: "groups",
-      color: "from-rose-600 to-pink-700",
-      tagline: "Bridging system efficiency with employee motivation and user adoption.",
-      overview: "Investigating the human element of technology systems. Focuses on employee motivation, UI ergonomics, and user training strategies that drive system adoption and prevent organizational friction.",
-      questions: [
-        "How do motivational metrics in engineering projects correspond with digital task-scheduling interfaces?",
-        "What UI dashboards design principles optimize data literacy among executives?"
-      ],
-      methodology: ["Usability & Human-Computer Interaction (HCI)", "Motivational Scheduling Matrix", "User Literacy Audits", "Surveys & Quantitative Analysis"],
-      publications: [
-        { title: "Employee Motivation in Construction Engineering", type: "Journal Paper", year: "2025" },
-        { title: "AI-Driven MIS for Social Equity", type: "Journal Paper", year: "2024" }
-      ]
-    }
-  };
+    import("@/lib/firestore").then(({ getResearchInterests, getPublications }) => {
+      getPublications().then((allPubs) => {
+        getResearchInterests().then((data) => {
+          if (data && data.length > 0) {
+            // Convert array of docs back to interests dictionary
+            const newInterests = {};
+            data.forEach((item) => {
+              let questions = item.questions || [];
+              if (typeof questions === "string") {
+                questions = questions.split("\n").map(q => q.trim()).filter(Boolean);
+              }
+              let methodology = item.methodology || [];
+              if (typeof methodology === "string") {
+                methodology = methodology.split("\n").map(m => m.trim()).filter(Boolean);
+              }
+              let publications = item.publications || [];
+              if (typeof publications === "string") {
+                try {
+                  publications = JSON.parse(publications);
+                } catch (_) {
+                  publications = publications.split("\n").map(p => ({ title: p.trim(), type: "Paper", year: "" })).filter(p => p.title);
+                }
+              }
+              
+              // Dynamic mapping from publications list if empty
+              if ((!publications || publications.length === 0) && allPubs && allPubs.length > 0) {
+                const itemKey = (item.id || "").toLowerCase();
+                const itemTitle = (item.title || "").toLowerCase();
+                
+                const matched = allPubs.filter((pub) => {
+                  const pubCat = (pub.category || "").toLowerCase();
+                  const pubTitle = (pub.title || "").toLowerCase();
+                  
+                  if (itemKey === "mis_ai" && (pubCat.includes("mis") || pubTitle.includes("management information"))) return true;
+                  if (itemKey === "supply_chain" && (pubCat.includes("supply") || pubTitle.includes("supply chain"))) return true;
+                  if (itemKey === "sustainability" && (pubCat.includes("sustain") || pubTitle.includes("sustainable") || pubTitle.includes("green marketing"))) return true;
+                  if (itemKey === "healthcare_org" && (
+                    pubCat.includes("health") || 
+                    pubTitle.includes("healthcare") || 
+                    pubTitle.includes("motivation") || 
+                    pubTitle.includes("behavior") ||
+                    pubTitle.includes("construction") ||
+                    pubTitle.includes("excellence")
+                  )) return true;
+                  
+                  if (pubCat && itemTitle.includes(pubCat)) return true;
+                  return false;
+                });
+                
+                publications = matched.map(p => ({
+                  title: p.title || "",
+                  type: p.category === "Patent" ? "Patent" : "Journal Paper",
+                  year: p.year || ""
+                }));
+              }
+              
+              newInterests[item.id] = {
+                title: item.title || "",
+                icon: item.icon || "science",
+                color: item.color || "from-blue-600 to-indigo-700",
+                tagline: item.tagline || "",
+                overview: item.overview || "",
+                questions,
+                methodology,
+                publications
+              };
+            });
+            setInterests(newInterests);
+            // Set first key as active if current is not in keys anymore
+            const keys = Object.keys(newInterests);
+            if (keys.length > 0 && !keys.includes(activeInterest)) {
+              setActiveInterest(keys[0]);
+            }
+          }
+        }).catch(() => {});
+      }).catch(() => {
+        // Fallback if getPublications fails
+        getResearchInterests().then((data) => {
+          if (data && data.length > 0) {
+            const newInterests = {};
+            data.forEach((item) => {
+              let questions = item.questions || [];
+              if (typeof questions === "string") {
+                questions = questions.split("\n").map(q => q.trim()).filter(Boolean);
+              }
+              let methodology = item.methodology || [];
+              if (typeof methodology === "string") {
+                methodology = methodology.split("\n").map(m => m.trim()).filter(Boolean);
+              }
+              let publications = item.publications || [];
+              if (typeof publications === "string") {
+                try {
+                  publications = JSON.parse(publications);
+                } catch (_) {
+                  publications = publications.split("\n").map(p => ({ title: p.trim(), type: "Paper", year: "" })).filter(p => p.title);
+                }
+              }
+              newInterests[item.id] = {
+                title: item.title || "",
+                icon: item.icon || "science",
+                color: item.color || "from-blue-600 to-indigo-700",
+                tagline: item.tagline || "",
+                overview: item.overview || "",
+                questions,
+                methodology,
+                publications
+              };
+            });
+            setInterests(newInterests);
+            const keys = Object.keys(newInterests);
+            if (keys.length > 0 && !keys.includes(activeInterest)) {
+              setActiveInterest(keys[0]);
+            }
+          }
+        }).catch(() => {});
+      });
+    }).catch(() => {});
+  }, []);
 
   return (
     <div className="min-h-screen flex flex-col bg-background text-on-surface custom-scroll transition-colors duration-300">
@@ -253,8 +373,11 @@ export default function Research() {
             <h2 className="font-display-lg text-2xl md:text-4xl font-extrabold text-on-primary mb-6">
               Future Research Directions
             </h2>
+            <p className="font-body-lg text-sm md:text-base opacity-90 leading-relaxed mb-6">
+              My ongoing research is expanding into how <strong>Generative AI and Large Language Models (LLMs)</strong> can be responsibly integrated within enterprise MIS platforms to automate structured reporting, anomaly flagging, and strategic advisory outputs. I am also investigating <strong>AI-driven cybersecurity frameworks</strong> that extend the capabilities of my patented threat-detection hardware — building predictive intrusion models that adapt to evolving network attack patterns in real time.
+            </p>
             <p className="font-body-lg text-sm md:text-base opacity-90 leading-relaxed mb-8">
-              Moving forward, my research is expanding to explore how **Generative Artificial Intelligence (GenAI)** and automated large language models can be securely integrated within enterprise DSS dashboards. Additionally, I am investigating **Sustainable Decision Paradigms** in global supply chains to reduce carbon footprints via real-time resource alignment and green MIS transparency frameworks.
+              In parallel, I am deepening my work on <strong>Sustainable MIS Design</strong> — exploring how AI-powered green analytics can be embedded within organizational information systems to reduce carbon footprint, improve supply chain transparency, and support ESG (Environmental, Social, Governance) compliance reporting across global enterprises.
             </p>
             <div className="flex flex-wrap gap-4">
               <Link
