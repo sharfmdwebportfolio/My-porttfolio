@@ -115,6 +115,41 @@ export default function Home() {
 
   return (
     <div className="min-h-screen flex flex-col bg-background text-on-surface transition-colors duration-300">
+      {/* Structured Data (JSON-LD) for SEO */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "name": "Md Sharfuddin",
+            "jobTitle": "AI-Driven MIS Researcher & Business Analyst",
+            "description": "Bridging business strategy, intelligent information systems, and data-driven decision science. Specializing in machine learning and predictive analytics to optimize enterprise MIS frameworks.",
+            "url": "https://sharfmdwebportfolio.com",
+            "email": "sharfuddin.md50@yahoo.com",
+            "telephone": "+1 (213) 636-2680",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Los Angeles",
+              "addressRegion": "CA",
+              "addressCountry": "US"
+            },
+            "alumniOf": {
+              "@type": "EducationalOrganization",
+              "name": "International American University (IAU)"
+            },
+            "award": [
+              "Data Analytics Excellence Award (Eudoxia Research University) - 2025",
+              "Royal Golden Fellow (FRAEL) - 2025"
+            ],
+            "sameAs": [
+              "https://orcid.org/0009-0006-5783-9992",
+              "https://www.observerbd.com/news/557499",
+              "https://dailyasianage.com/news/345540/data-analytics-excellence-award2025-conferred-to-md-sharfuddin"
+            ]
+          })
+        }}
+      />
       <Header />
 
       <main className="flex-grow">
